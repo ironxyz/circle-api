@@ -31,7 +31,7 @@ pub async fn get_exchange_rates(configuration: &configuration::Configuration, tr
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v1/exchange/rates/{trading-pair}", local_var_configuration.base_path, trading-pair=crate::apis::urlencode(trading_pair));
+    let local_var_uri_str = format!("{}/v1/exchange/rates/{}", local_var_configuration.base_path, crate::apis::urlencode(trading_pair));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
