@@ -1,5 +1,5 @@
 [package]
-name = "openapi"
+name = "circle-api"
 version = "2.11.1"
 authors = ["OpenAPI Generator team and contributors"]
 description = "Circle's General, Core Functionality, Payments, Payouts, Accounts, and Crypto Payments APIs bundled into one OpenAPI Specification."
