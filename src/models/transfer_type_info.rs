@@ -17,7 +17,7 @@ pub struct TransferTypeInfo {
     #[serde(rename = "currencies")]
     pub currencies: Vec<models::FiatCurrency>,
     #[serde(rename = "additionalProperties", skip_serializing_if = "Option::is_none")]
-    pub additional_properties: Option<Box<models::TransferTypeInfoAdditionalProperties>>,
+    pub additional_properties: Option<models::TransferTypeInfoAdditionalProperties>,
 }
 
 impl TransferTypeInfo {

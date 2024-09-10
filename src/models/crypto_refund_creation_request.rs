@@ -17,20 +17,20 @@ pub struct CryptoRefundCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "destination")]
-    pub destination: Box<models::CryptoRefundDestination>,
+    pub destination: models::CryptoRefundDestination,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoRefundCreationRequestAmount>,
+    pub amount: models::CryptoRefundCreationRequestAmount,
     #[serde(rename = "toAmount")]
-    pub to_amount: Box<models::CryptoRefundCreationRequestToAmount>,
+    pub to_amount: models::CryptoRefundCreationRequestToAmount,
 }
 
 impl CryptoRefundCreationRequest {
     pub fn new(idempotency_key: uuid::Uuid, destination: models::CryptoRefundDestination, amount: models::CryptoRefundCreationRequestAmount, to_amount: models::CryptoRefundCreationRequestToAmount) -> CryptoRefundCreationRequest {
         CryptoRefundCreationRequest {
             idempotency_key,
-            destination: Box::new(destination),
-            amount: Box::new(amount),
-            to_amount: Box::new(to_amount),
+            destination,
+            amount,
+            to_amount,
         }
     }
 }

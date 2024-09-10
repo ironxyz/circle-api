@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TransferCreationRequestDestination {
-    TransferRequestBlockchainLocation(Box<models::TransferRequestBlockchainLocation>),
-    WalletLocation(Box<models::WalletLocation>),
+    TransferRequestBlockchainLocation(models::TransferRequestBlockchainLocation),
+    WalletLocation(models::WalletLocation),
 }
 
 impl Default for TransferCreationRequestDestination {

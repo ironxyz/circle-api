@@ -17,17 +17,17 @@ pub struct MockWirePaymentRequest {
     #[serde(rename = "trackingRef")]
     pub tracking_ref: String,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     #[serde(rename = "beneficiaryBank")]
-    pub beneficiary_bank: Box<models::MockWirePaymentBeneficiaryBankInstruction>,
+    pub beneficiary_bank: models::MockWirePaymentBeneficiaryBankInstruction,
 }
 
 impl MockWirePaymentRequest {
     pub fn new(tracking_ref: String, amount: models::FiatMoneyUsd, beneficiary_bank: models::MockWirePaymentBeneficiaryBankInstruction) -> MockWirePaymentRequest {
         MockWirePaymentRequest {
             tracking_ref,
-            amount: Box::new(amount),
-            beneficiary_bank: Box::new(beneficiary_bank),
+            amount,
+            beneficiary_bank,
         }
     }
 }

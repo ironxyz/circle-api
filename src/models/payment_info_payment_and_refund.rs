@@ -21,16 +21,16 @@ pub struct PaymentInfoPaymentAndRefund {
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Type>,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::FiatMoneyUsd>>,
+    pub amount: Option<models::FiatMoneyUsd>,
     /// Enumerated description of the payment item.
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<Description>>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<models::PaymentStatus>,
     #[serde(rename = "requiredAction", skip_serializing_if = "Option::is_none")]
-    pub required_action: Option<Box<models::RequiredAction>>,
+    pub required_action: Option<models::RequiredAction>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate", skip_serializing_if = "Option::is_none")]
     pub create_date: Option<String>,

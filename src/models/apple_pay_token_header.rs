@@ -16,8 +16,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ApplePayTokenHeader {
-    ApplePayTokenEcHeader(Box<models::ApplePayTokenEcHeader>),
-    ApplePayTokenRsaHeader(Box<models::ApplePayTokenRsaHeader>),
+    ApplePayTokenEcHeader(models::ApplePayTokenEcHeader),
+    ApplePayTokenRsaHeader(models::ApplePayTokenRsaHeader),
 }
 
 impl Default for ApplePayTokenHeader {

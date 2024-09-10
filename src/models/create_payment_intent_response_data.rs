@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreatePaymentIntentResponseData {
-    PaymentIntent(Box<models::PaymentIntent>),
-    ContinuousPaymentIntent(Box<models::ContinuousPaymentIntent>),
+    PaymentIntent(models::PaymentIntent),
+    ContinuousPaymentIntent(models::ContinuousPaymentIntent),
 }
 
 impl Default for CreatePaymentIntentResponseData {

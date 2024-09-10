@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PresignResponseTypedData {
     #[serde(rename = "domain")]
-    pub domain: Box<models::PresignDomain>,
+    pub domain: models::PresignDomain,
     #[serde(rename = "message")]
-    pub message: Box<models::PresignMessage>,
+    pub message: models::PresignMessage,
     #[serde(rename = "totalAmount")]
-    pub total_amount: Box<models::FiatMoneyUsd>,
+    pub total_amount: models::FiatMoneyUsd,
     /// Who pays for network fee. Can only be endUser or merchant. If it's the endUser, totalAmount includes the network fee and networkFeeQuote isn't null; If it's the merchant, totalAmount doesn't include network fee and networkFeeQuote is null.
     #[serde(rename = "feeChargeModel")]
     pub fee_charge_model: FeeChargeModel,
     #[serde(rename = "networkFeeQuote", skip_serializing_if = "Option::is_none")]
-    pub network_fee_quote: Option<Box<models::NetworkFeeQuote>>,
+    pub network_fee_quote: Option<models::NetworkFeeQuote>,
     #[serde(rename = "types")]
-    pub types: Box<models::PresignMessageTypes>,
+    pub types: models::PresignMessageTypes,
     /// Type of the message
     #[serde(rename = "primaryType")]
     pub primary_type: PrimaryType,
@@ -36,12 +36,12 @@ impl PresignResponseTypedData {
     /// The typed data
     pub fn new(domain: models::PresignDomain, message: models::PresignMessage, total_amount: models::FiatMoneyUsd, fee_charge_model: FeeChargeModel, types: models::PresignMessageTypes, primary_type: PrimaryType) -> PresignResponseTypedData {
         PresignResponseTypedData {
-            domain: Box::new(domain),
-            message: Box::new(message),
-            total_amount: Box::new(total_amount),
+            domain,
+            message,
+            total_amount,
             fee_charge_model,
             network_fee_quote: None,
-            types: Box::new(types),
+            types,
             primary_type,
         }
     }

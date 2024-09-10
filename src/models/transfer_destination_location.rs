@@ -16,8 +16,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TransferDestinationLocation {
-    TransferDestinationBlockchainLocation(Box<models::TransferDestinationBlockchainLocation>),
-    TransferDestinationWalletLocation(Box<models::TransferDestinationWalletLocation>),
+    TransferDestinationBlockchainLocation(models::TransferDestinationBlockchainLocation),
+    TransferDestinationWalletLocation(models::TransferDestinationWalletLocation),
 }
 
 impl Default for TransferDestinationLocation {

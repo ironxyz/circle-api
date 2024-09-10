@@ -30,7 +30,7 @@ pub struct CardUpdate {
     #[serde(rename = "expYear", skip_serializing_if = "Option::is_none")]
     pub exp_year: Option<i32>,
     #[serde(rename = "billingDetails", skip_serializing_if = "Option::is_none")]
-    pub billing_details: Option<Box<models::UpdateBillingDetails>>,
+    pub billing_details: Option<models::UpdateBillingDetails>,
 }
 
 impl CardUpdate {

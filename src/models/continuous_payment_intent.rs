@@ -20,9 +20,9 @@ pub struct ContinuousPaymentIntent {
     #[serde(rename = "currency")]
     pub currency: Currency,
     #[serde(rename = "amountPaid", skip_serializing_if = "Option::is_none")]
-    pub amount_paid: Option<Box<models::CryptoPaymentsMoney>>,
+    pub amount_paid: Option<models::CryptoPaymentsMoney>,
     #[serde(rename = "amountRefunded", skip_serializing_if = "Option::is_none")]
-    pub amount_refunded: Option<Box<models::CryptoPaymentsMoney>>,
+    pub amount_refunded: Option<models::CryptoPaymentsMoney>,
     /// Desired currency for the payments to settle in.
     #[serde(rename = "settlementCurrency")]
     pub settlement_currency: SettlementCurrency,

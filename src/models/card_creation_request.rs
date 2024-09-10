@@ -27,7 +27,7 @@ pub struct CardCreationRequest {
     #[serde(rename = "encryptedData")]
     pub encrypted_data: Vec<u8>,
     #[serde(rename = "billingDetails")]
-    pub billing_details: Box<models::BillingDetails>,
+    pub billing_details: models::BillingDetails,
     /// Two digit number representing the card's expiration month.
     #[serde(rename = "expMonth")]
     pub exp_month: i32,
@@ -35,7 +35,7 @@ pub struct CardCreationRequest {
     #[serde(rename = "expYear")]
     pub exp_year: i32,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::MetadataCardAndAch>,
+    pub metadata: models::MetadataCardAndAch,
 }
 
 impl CardCreationRequest {
@@ -44,10 +44,10 @@ impl CardCreationRequest {
             idempotency_key,
             key_id: None,
             encrypted_data,
-            billing_details: Box::new(billing_details),
+            billing_details,
             exp_month,
             exp_year,
-            metadata: Box::new(metadata),
+            metadata,
         }
     }
 }

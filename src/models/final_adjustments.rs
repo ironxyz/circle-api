@@ -15,9 +15,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FinalAdjustments {
     #[serde(rename = "fxCredit", skip_serializing_if = "Option::is_none")]
-    pub fx_credit: Option<Box<models::FiatMoneyUsd>>,
+    pub fx_credit: Option<models::FiatMoneyUsd>,
     #[serde(rename = "fxDebit", skip_serializing_if = "Option::is_none")]
-    pub fx_debit: Option<Box<models::FiatMoneyUsd>>,
+    pub fx_debit: Option<models::FiatMoneyUsd>,
 }
 
 impl FinalAdjustments {

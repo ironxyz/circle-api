@@ -17,9 +17,9 @@ pub struct MockWirePaymentResponse {
     #[serde(rename = "trackingRef", skip_serializing_if = "Option::is_none")]
     pub tracking_ref: Option<String>,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::FiatMoneyUsd>>,
+    pub amount: Option<models::FiatMoneyUsd>,
     #[serde(rename = "beneficiaryBank", skip_serializing_if = "Option::is_none")]
-    pub beneficiary_bank: Option<Box<models::MockWirePaymentBeneficiaryBankInstruction>>,
+    pub beneficiary_bank: Option<models::MockWirePaymentBeneficiaryBankInstruction>,
     /// Enumerated status of the wire payment. Status `pending` indicates that the wire payment is in process; `processed` indicates it finished successfully; `failed` indicates it failed.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<Status>,

@@ -15,14 +15,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PresignResponse {
     #[serde(rename = "typedData")]
-    pub typed_data: Box<models::PresignResponseTypedData>,
+    pub typed_data: models::PresignResponseTypedData,
 }
 
 impl PresignResponse {
     /// Response of the GET /presign endpoint
     pub fn new(typed_data: models::PresignResponseTypedData) -> PresignResponse {
         PresignResponse {
-            typed_data: Box::new(typed_data),
+            typed_data,
         }
     }
 }

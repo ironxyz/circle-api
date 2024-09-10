@@ -17,7 +17,7 @@ pub struct RefundCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     #[serde(rename = "reason", skip_serializing_if = "Option::is_none")]
     pub reason: Option<models::ReversalReason>,
 }
@@ -26,7 +26,7 @@ impl RefundCreationRequest {
     pub fn new(idempotency_key: uuid::Uuid, amount: models::FiatMoneyUsd) -> RefundCreationRequest {
         RefundCreationRequest {
             idempotency_key,
-            amount: Box::new(amount),
+            amount,
             reason: None,
         }
     }

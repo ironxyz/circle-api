@@ -21,9 +21,9 @@ pub struct WireCreationRequestIban {
     #[serde(rename = "iban")]
     pub iban: String,
     #[serde(rename = "billingDetails")]
-    pub billing_details: Box<models::BillingDetails>,
+    pub billing_details: models::BillingDetails,
     #[serde(rename = "bankAddress")]
-    pub bank_address: Box<models::BankAddressIbanSupported>,
+    pub bank_address: models::BankAddressIbanSupported,
 }
 
 impl WireCreationRequestIban {
@@ -32,8 +32,8 @@ impl WireCreationRequestIban {
         WireCreationRequestIban {
             idempotency_key,
             iban,
-            billing_details: Box::new(billing_details),
-            bank_address: Box::new(bank_address),
+            billing_details,
+            bank_address,
         }
     }
 }

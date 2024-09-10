@@ -24,9 +24,9 @@ pub struct WireCreationRequestAccountNumber {
     #[serde(rename = "routingNumber")]
     pub routing_number: String,
     #[serde(rename = "billingDetails")]
-    pub billing_details: Box<models::BillingDetails>,
+    pub billing_details: models::BillingDetails,
     #[serde(rename = "bankAddress")]
-    pub bank_address: Box<models::BankAddressNonIban>,
+    pub bank_address: models::BankAddressNonIban,
 }
 
 impl WireCreationRequestAccountNumber {
@@ -36,8 +36,8 @@ impl WireCreationRequestAccountNumber {
             idempotency_key,
             account_number,
             routing_number,
-            billing_details: Box::new(billing_details),
-            bank_address: Box::new(bank_address),
+            billing_details,
+            bank_address,
         }
     }
 }

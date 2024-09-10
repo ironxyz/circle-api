@@ -20,13 +20,13 @@ pub struct CryptoPaymentCreationRequest {
     #[serde(rename = "paymentIntentId")]
     pub payment_intent_id: String,
     #[serde(rename = "protocolMetadata")]
-    pub protocol_metadata: Box<models::MetadataCryptoPayment>,
+    pub protocol_metadata: models::MetadataCryptoPayment,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoPaymentsMoney>,
+    pub amount: models::CryptoPaymentsMoney,
     #[serde(rename = "source")]
-    pub source: Box<models::CryptoPaymentSource>,
+    pub source: models::CryptoPaymentSource,
     #[serde(rename = "destination")]
-    pub destination: Box<models::CryptoPaymentDestination>,
+    pub destination: models::CryptoPaymentDestination,
     /// Network fee quote uuid which is returned from the /presign response. Only required when end user pays for gas fee
     #[serde(rename = "quoteId", skip_serializing_if = "Option::is_none")]
     pub quote_id: Option<uuid::Uuid>,
@@ -37,10 +37,10 @@ impl CryptoPaymentCreationRequest {
         CryptoPaymentCreationRequest {
             idempotency_key,
             payment_intent_id,
-            protocol_metadata: Box::new(protocol_metadata),
-            amount: Box::new(amount),
-            source: Box::new(source),
-            destination: Box::new(destination),
+            protocol_metadata,
+            amount,
+            source,
+            destination,
             quote_id: None,
         }
     }

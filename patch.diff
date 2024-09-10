@@ -1,0 +1,19 @@
+commit 11865c5e07b26dfc59ae165e3e1647829d1d40a0
+Author: Ben Terhechte <benedikt@iron.xyz>
+Date:   Mon Sep 9 14:57:44 2024 +0200
+
+    small fix
+
+diff --git a/src/apis/crypto_exchange_rates_api.rs b/src/apis/crypto_exchange_rates_api.rs
+index 3e40491..cc6601c 100644
+--- a/src/apis/crypto_exchange_rates_api.rs
++++ b/src/apis/crypto_exchange_rates_api.rs
+@@ -31,7 +31,7 @@ pub async fn get_exchange_rates(configuration: &configuration::Configuration, tr
+ 
+     let local_var_client = &local_var_configuration.client;
+ 
+-    let local_var_uri_str = format!("{}/v1/exchange/rates/{trading-pair}", local_var_configuration.base_path, trading-pair=crate::apis::urlencode(trading_pair));
++    let local_var_uri_str = format!("{}/v1/exchange/rates/{}", local_var_configuration.base_path, crate::apis::urlencode(trading_pair));
+     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+ 
+     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {

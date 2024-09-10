@@ -1,2 +1,3 @@
 generate:
-	openapi-generator generate -i "https://github.com/circlefin/openapi/raw/master/openapi/json/circle-apis.json" -g rust -o .
+	openapi-generator generate -i "circle-apis.json" -g rust --additional-properties=packageName=circle-api,avoidBoxedModels=true -o .
+	git apply patch.diff

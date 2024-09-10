@@ -26,20 +26,20 @@ pub struct FiatRefund {
     #[serde(rename = "merchantWalletId", skip_serializing_if = "Option::is_none")]
     pub merchant_wallet_id: Option<String>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     #[serde(rename = "source")]
-    pub source: Box<models::SourceResponse>,
+    pub source: models::SourceResponse,
     /// Enumerated description of the payment.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<Description>,
     #[serde(rename = "status")]
     pub status: models::CancelRefundReversalStatus,
     #[serde(rename = "originalPayment", skip_serializing_if = "Option::is_none")]
-    pub original_payment: Option<Box<models::PaymentInfoPaymentAndRefund>>,
+    pub original_payment: Option<models::PaymentInfoPaymentAndRefund>,
     #[serde(rename = "cancel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cancel: Option<Option<Box<models::PaymentInfoCancel>>>,
+    pub cancel: Option<Option<models::PaymentInfoCancel>>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     /// The channel identifier that can be set for the payment. When not provided, the default channel is used.
     #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
     pub channel: Option<uuid::Uuid>,
@@ -58,8 +58,8 @@ impl FiatRefund {
             r#type,
             merchant_id,
             merchant_wallet_id: None,
-            amount: Box::new(amount),
-            source: Box::new(source),
+            amount,
+            source,
             description: None,
             status,
             original_payment: None,

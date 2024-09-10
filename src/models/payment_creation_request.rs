@@ -23,9 +23,9 @@ pub struct PaymentCreationRequest {
     #[serde(rename = "keyId", skip_serializing_if = "Option::is_none")]
     pub key_id: Option<uuid::Uuid>,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::MetadataPayment>,
+    pub metadata: models::MetadataPayment,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     /// Triggers the automatic capture of the full payment amount. If set to false the payment will only be authorized but not captured.
     #[serde(rename = "autoCapture", skip_serializing_if = "Option::is_none")]
     pub auto_capture: Option<bool>,
@@ -39,7 +39,7 @@ pub struct PaymentCreationRequest {
     #[serde(rename = "verificationFailureUrl", skip_serializing_if = "Option::is_none")]
     pub verification_failure_url: Option<String>,
     #[serde(rename = "source")]
-    pub source: Box<models::Source>,
+    pub source: models::Source,
     /// Description of the payment with length restriction of 240 characters.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
@@ -57,13 +57,13 @@ impl PaymentCreationRequest {
         PaymentCreationRequest {
             idempotency_key,
             key_id: None,
-            metadata: Box::new(metadata),
-            amount: Box::new(amount),
+            metadata,
+            amount,
             auto_capture: None,
             verification,
             verification_success_url: None,
             verification_failure_url: None,
-            source: Box::new(source),
+            source,
             description: None,
             encrypted_data: None,
             channel: None,

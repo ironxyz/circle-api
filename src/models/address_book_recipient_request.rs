@@ -25,7 +25,7 @@ pub struct AddressBookRecipientRequest {
     #[serde(rename = "addressTag", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub address_tag: Option<Option<String>>,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::AddressBookRecipientMetadata>,
+    pub metadata: models::AddressBookRecipientMetadata,
 }
 
 impl AddressBookRecipientRequest {
@@ -35,7 +35,7 @@ impl AddressBookRecipientRequest {
             chain,
             address,
             address_tag: None,
-            metadata: Box::new(metadata),
+            metadata,
         }
     }
 }

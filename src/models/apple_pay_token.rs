@@ -23,7 +23,7 @@ pub struct ApplePayToken {
     #[serde(rename = "signature")]
     pub signature: String,
     #[serde(rename = "header")]
-    pub header: Box<models::ApplePayTokenHeader>,
+    pub header: models::ApplePayTokenHeader,
 }
 
 impl ApplePayToken {
@@ -32,7 +32,7 @@ impl ApplePayToken {
             version,
             data,
             signature,
-            header: Box::new(header),
+            header,
         }
     }
 }

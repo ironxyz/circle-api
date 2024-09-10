@@ -17,20 +17,20 @@ pub struct TransferCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "source")]
-    pub source: Box<models::TransferRequestSourceWalletLocation>,
+    pub source: models::TransferRequestSourceWalletLocation,
     #[serde(rename = "destination")]
-    pub destination: Box<models::TransferCreationRequestDestination>,
+    pub destination: models::TransferCreationRequestDestination,
     #[serde(rename = "amount")]
-    pub amount: Box<models::Money>,
+    pub amount: models::Money,
 }
 
 impl TransferCreationRequest {
     pub fn new(idempotency_key: uuid::Uuid, source: models::TransferRequestSourceWalletLocation, destination: models::TransferCreationRequestDestination, amount: models::Money) -> TransferCreationRequest {
         TransferCreationRequest {
             idempotency_key,
-            source: Box::new(source),
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            source,
+            destination,
+            amount,
         }
     }
 }

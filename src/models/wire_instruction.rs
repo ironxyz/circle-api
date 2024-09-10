@@ -17,9 +17,9 @@ pub struct WireInstruction {
     #[serde(rename = "trackingRef", skip_serializing_if = "Option::is_none")]
     pub tracking_ref: Option<String>,
     #[serde(rename = "beneficiary", skip_serializing_if = "Option::is_none")]
-    pub beneficiary: Option<Box<models::WireInstructionBeneficiary>>,
+    pub beneficiary: Option<models::WireInstructionBeneficiary>,
     #[serde(rename = "beneficiaryBank", skip_serializing_if = "Option::is_none")]
-    pub beneficiary_bank: Option<Box<models::WireInstructionBeneficiaryBank>>,
+    pub beneficiary_bank: Option<models::WireInstructionBeneficiaryBank>,
 }
 
 impl WireInstruction {

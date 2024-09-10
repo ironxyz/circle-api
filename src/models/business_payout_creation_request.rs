@@ -17,19 +17,19 @@ pub struct BusinessPayoutCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "destination")]
-    pub destination: Box<models::BusinessDestinationRequest>,
+    pub destination: models::BusinessDestinationRequest,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoney>,
+    pub amount: models::FiatMoney,
     #[serde(rename = "toAmount", skip_serializing_if = "Option::is_none")]
-    pub to_amount: Option<Box<models::FiatPayoutToMoney>>,
+    pub to_amount: Option<models::FiatPayoutToMoney>,
 }
 
 impl BusinessPayoutCreationRequest {
     pub fn new(idempotency_key: uuid::Uuid, destination: models::BusinessDestinationRequest, amount: models::FiatMoney) -> BusinessPayoutCreationRequest {
         BusinessPayoutCreationRequest {
             idempotency_key,
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            destination,
+            amount,
             to_amount: None,
         }
     }

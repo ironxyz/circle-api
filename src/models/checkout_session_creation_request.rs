@@ -17,14 +17,14 @@ pub struct CheckoutSessionCreationRequest {
     #[serde(rename = "successUrl", skip_serializing_if = "Option::is_none")]
     pub success_url: Option<String>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CheckoutSessionMoney>,
+    pub amount: models::CheckoutSessionMoney,
 }
 
 impl CheckoutSessionCreationRequest {
     pub fn new(amount: models::CheckoutSessionMoney) -> CheckoutSessionCreationRequest {
         CheckoutSessionCreationRequest {
             success_url: None,
-            amount: Box::new(amount),
+            amount,
         }
     }
 }

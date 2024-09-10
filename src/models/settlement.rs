@@ -23,13 +23,13 @@ pub struct Settlement {
     #[serde(rename = "walletId", skip_serializing_if = "Option::is_none")]
     pub wallet_id: Option<String>,
     #[serde(rename = "totalDebits", skip_serializing_if = "Option::is_none")]
-    pub total_debits: Option<Box<models::FiatMoneyUsd>>,
+    pub total_debits: Option<models::FiatMoneyUsd>,
     #[serde(rename = "totalCredits", skip_serializing_if = "Option::is_none")]
-    pub total_credits: Option<Box<models::FiatMoneyUsd>>,
+    pub total_credits: Option<models::FiatMoneyUsd>,
     #[serde(rename = "paymentFees", skip_serializing_if = "Option::is_none")]
-    pub payment_fees: Option<Box<models::FiatMoneyUsd>>,
+    pub payment_fees: Option<models::FiatMoneyUsd>,
     #[serde(rename = "chargebackFees", skip_serializing_if = "Option::is_none")]
-    pub chargeback_fees: Option<Box<models::FiatMoneyUsd>>,
+    pub chargeback_fees: Option<models::FiatMoneyUsd>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate", skip_serializing_if = "Option::is_none")]
     pub create_date: Option<String>,

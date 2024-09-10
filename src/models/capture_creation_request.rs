@@ -17,7 +17,7 @@ pub struct CaptureCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::FiatMoneyUsd>>,
+    pub amount: Option<models::FiatMoneyUsd>,
 }
 
 impl CaptureCreationRequest {

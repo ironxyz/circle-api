@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AddressBookRecipientModifyRequest {
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<Box<models::AddressBookRecipientMetadata>>,
+    pub metadata: Option<models::AddressBookRecipientMetadata>,
 }
 
 impl AddressBookRecipientModifyRequest {

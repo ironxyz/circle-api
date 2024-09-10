@@ -17,7 +17,7 @@ pub struct PaymentIntentCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoPaymentsMoney>,
+    pub amount: models::CryptoPaymentsMoney,
     /// Desired currency for the payments to settle in.
     #[serde(rename = "settlementCurrency")]
     pub settlement_currency: SettlementCurrency,
@@ -32,7 +32,7 @@ impl PaymentIntentCreationRequest {
     pub fn new(idempotency_key: uuid::Uuid, amount: models::CryptoPaymentsMoney, settlement_currency: SettlementCurrency, payment_methods: Vec<models::PaymentMethodBlockchain>) -> PaymentIntentCreationRequest {
         PaymentIntentCreationRequest {
             idempotency_key,
-            amount: Box::new(amount),
+            amount,
             settlement_currency,
             payment_methods,
             merchant_wallet_id: None,

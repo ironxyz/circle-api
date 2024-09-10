@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountConfiguration {
     #[serde(rename = "payments", skip_serializing_if = "Option::is_none")]
-    pub payments: Option<Box<models::WalletConfig>>,
+    pub payments: Option<models::WalletConfig>,
 }
 
 impl AccountConfiguration {

@@ -17,9 +17,9 @@ pub struct BasicChargebackHistory {
     #[serde(rename = "type")]
     pub r#type: Type,
     #[serde(rename = "chargebackAmount")]
-    pub chargeback_amount: Box<models::FiatMoneyUsd>,
+    pub chargeback_amount: models::FiatMoneyUsd,
     #[serde(rename = "fee", skip_serializing_if = "Option::is_none")]
-    pub fee: Option<Box<models::FiatMoneyUsd>>,
+    pub fee: Option<models::FiatMoneyUsd>,
     /// The reason the chargeback was created.
     #[serde(rename = "description")]
     pub description: String,
@@ -35,7 +35,7 @@ impl BasicChargebackHistory {
     pub fn new(r#type: Type, chargeback_amount: models::FiatMoneyUsd, description: String) -> BasicChargebackHistory {
         BasicChargebackHistory {
             r#type,
-            chargeback_amount: Box::new(chargeback_amount),
+            chargeback_amount,
             fee: None,
             description,
             settlement_id: None,

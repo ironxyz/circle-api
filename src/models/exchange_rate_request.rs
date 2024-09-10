@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct ExchangeRateRequest {
     /// Amount (Optional) and currency to convert from. If an amount is provided here, then the amount in the \"to\" field must be null.
     #[serde(rename = "from")]
-    pub from: Box<models::FiatOptionalAmountMoney>,
+    pub from: models::FiatOptionalAmountMoney,
     /// Amount (Optional) and currency to convert to. If an amount is provided here, then the amount in the \"from\" field must be null.
     #[serde(rename = "to")]
-    pub to: Box<models::FiatOptionalAmountMoney>,
+    pub to: models::FiatOptionalAmountMoney,
 }
 
 impl ExchangeRateRequest {
     pub fn new(from: models::FiatOptionalAmountMoney, to: models::FiatOptionalAmountMoney) -> ExchangeRateRequest {
         ExchangeRateRequest {
-            from: Box::new(from),
-            to: Box::new(to),
+            from,
+            to,
         }
     }
 }

@@ -31,9 +31,9 @@ pub struct Wire {
     #[serde(rename = "fingerprint")]
     pub fingerprint: String,
     #[serde(rename = "billingDetails")]
-    pub billing_details: Box<models::BillingDetails>,
+    pub billing_details: models::BillingDetails,
     #[serde(rename = "bankAddress", skip_serializing_if = "Option::is_none")]
-    pub bank_address: Option<Box<models::BankAddress>>,
+    pub bank_address: Option<models::BankAddress>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate")]
     pub create_date: String,
@@ -51,7 +51,7 @@ impl Wire {
             tracking_ref,
             transfer_types_info,
             fingerprint,
-            billing_details: Box::new(billing_details),
+            billing_details,
             bank_address: None,
             create_date,
             update_date,

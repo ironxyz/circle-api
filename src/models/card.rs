@@ -19,7 +19,7 @@ pub struct Card {
     #[serde(rename = "status")]
     pub status: models::ExternalFiatAccountStatus,
     #[serde(rename = "billingDetails")]
-    pub billing_details: Box<models::BillingDetails>,
+    pub billing_details: models::BillingDetails,
     /// Two digit number representing the card's expiration month.
     #[serde(rename = "expMonth")]
     pub exp_month: i32,
@@ -47,11 +47,11 @@ pub struct Card {
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::VerificationErrorCode>>,
     #[serde(rename = "verification")]
-    pub verification: Box<models::CardVerificationResponse>,
+    pub verification: models::CardVerificationResponse,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     #[serde(rename = "metadata")]
-    pub metadata: Box<models::MetadataPhoneEmail>,
+    pub metadata: models::MetadataPhoneEmail,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate")]
     pub create_date: String,
@@ -65,7 +65,7 @@ impl Card {
         Card {
             id,
             status,
-            billing_details: Box::new(billing_details),
+            billing_details,
             exp_month,
             exp_year,
             network,
@@ -75,9 +75,9 @@ impl Card {
             funding_type: None,
             fingerprint,
             error_code: None,
-            verification: Box::new(verification),
+            verification,
             risk_evaluation: None,
-            metadata: Box::new(metadata),
+            metadata,
             create_date,
             update_date,
         }

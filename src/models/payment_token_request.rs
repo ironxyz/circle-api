@@ -20,7 +20,7 @@ pub struct PaymentTokenRequest {
     #[serde(rename = "type")]
     pub r#type: Type,
     #[serde(rename = "tokenData")]
-    pub token_data: Box<models::PaymentTokenRequestTokenData>,
+    pub token_data: models::PaymentTokenRequestTokenData,
 }
 
 impl PaymentTokenRequest {
@@ -28,7 +28,7 @@ impl PaymentTokenRequest {
         PaymentTokenRequest {
             idempotency_key,
             r#type,
-            token_data: Box::new(token_data),
+            token_data,
         }
     }
 }

@@ -20,21 +20,21 @@ pub struct CryptoPayout {
     #[serde(rename = "sourceWalletId", skip_serializing_if = "Option::is_none")]
     pub source_wallet_id: Option<String>,
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
-    pub destination: Option<Box<models::CryptoPayoutDestination>>,
+    pub destination: Option<models::CryptoPayoutDestination>,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::PayoutMoney>>,
+    pub amount: Option<models::PayoutMoney>,
     #[serde(rename = "toAmount", skip_serializing_if = "Option::is_none")]
-    pub to_amount: Option<Box<models::PayoutMoney>>,
+    pub to_amount: Option<models::PayoutMoney>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::PayoutMoney>>,
+    pub fees: Option<models::PayoutMoney>,
     #[serde(rename = "networkFees", skip_serializing_if = "Option::is_none")]
-    pub network_fees: Option<Box<models::PayoutMoney>>,
+    pub network_fees: Option<models::PayoutMoney>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<models::PayoutStatus>,
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::PayoutErrorCode>>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate", skip_serializing_if = "Option::is_none")]
     pub create_date: Option<String>,

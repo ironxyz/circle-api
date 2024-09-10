@@ -27,21 +27,21 @@ pub struct CryptoPayment {
     #[serde(rename = "merchantWalletId", skip_serializing_if = "Option::is_none")]
     pub merchant_wallet_id: Option<String>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoPaymentsOptionalAmountMoney>,
+    pub amount: models::CryptoPaymentsOptionalAmountMoney,
     #[serde(rename = "status")]
     pub status: models::PaymentStatus,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     #[serde(rename = "networkFees", skip_serializing_if = "Option::is_none")]
-    pub network_fees: Option<Box<models::CryptoPaymentNetworkFee>>,
+    pub network_fees: Option<models::CryptoPaymentNetworkFee>,
     #[serde(rename = "paymentIntentId", skip_serializing_if = "Option::is_none")]
     pub payment_intent_id: Option<uuid::Uuid>,
     #[serde(rename = "settlementAmount", skip_serializing_if = "Option::is_none")]
-    pub settlement_amount: Option<Box<models::FiatMoneyUsd>>,
+    pub settlement_amount: Option<models::FiatMoneyUsd>,
     #[serde(rename = "fromAddresses", skip_serializing_if = "Option::is_none")]
-    pub from_addresses: Option<Box<models::CryptoPaymentFromAddresses>>,
+    pub from_addresses: Option<models::CryptoPaymentFromAddresses>,
     #[serde(rename = "depositAddress", skip_serializing_if = "Option::is_none")]
-    pub deposit_address: Option<Box<models::CryptoPaymentDepositAddress>>,
+    pub deposit_address: Option<models::CryptoPaymentDepositAddress>,
     #[serde(rename = "transactionHash", skip_serializing_if = "Option::is_none")]
     pub transaction_hash: Option<String>,
     /// ISO-8601 UTC date/time format.
@@ -51,7 +51,7 @@ pub struct CryptoPayment {
     #[serde(rename = "updateDate", skip_serializing_if = "Option::is_none")]
     pub update_date: Option<String>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
 }
 
 impl CryptoPayment {
@@ -62,7 +62,7 @@ impl CryptoPayment {
             r#type,
             merchant_id,
             merchant_wallet_id: None,
-            amount: Box::new(amount),
+            amount,
             status,
             fees: None,
             network_fees: None,

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateBusinessPayoutResponse {
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Box<models::BusinessPayout>>,
+    pub data: Option<models::BusinessPayout>,
 }
 
 impl CreateBusinessPayoutResponse {

@@ -14,10 +14,10 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListPaymentsResponseDataInner {
-    FiatPayment(Box<models::FiatPayment>),
-    CryptoPayment(Box<models::CryptoPayment>),
-    FiatCancel(Box<models::FiatCancel>),
-    FiatRefund(Box<models::FiatRefund>),
+    FiatPayment(models::FiatPayment),
+    CryptoPayment(models::CryptoPayment),
+    FiatCancel(models::FiatCancel),
+    FiatRefund(models::FiatRefund),
 }
 
 impl Default for ListPaymentsResponseDataInner {

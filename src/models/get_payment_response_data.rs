@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPaymentResponseData {
-    FiatPaymentPolymorphic(Box<models::FiatPaymentPolymorphic>),
-    CryptoPayment(Box<models::CryptoPayment>),
+    FiatPaymentPolymorphic(models::FiatPaymentPolymorphic),
+    CryptoPayment(models::CryptoPayment),
 }
 
 impl Default for GetPaymentResponseData {

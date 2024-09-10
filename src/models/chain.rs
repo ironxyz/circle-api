@@ -49,6 +49,8 @@ pub enum Chain {
     Trx,
     #[serde(rename = "XLM")]
     Xlm,
+    #[serde(rename = "ZKS")]
+    Zks,
 
 }
 
@@ -72,6 +74,7 @@ impl std::fmt::Display for Chain {
             Self::Sol => write!(f, "SOL"),
             Self::Trx => write!(f, "TRX"),
             Self::Xlm => write!(f, "XLM"),
+            Self::Zks => write!(f, "ZKS"),
         }
     }
 }

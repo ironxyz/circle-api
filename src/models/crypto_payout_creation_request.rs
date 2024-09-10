@@ -17,13 +17,13 @@ pub struct CryptoPayoutCreationRequest {
     #[serde(rename = "idempotencyKey")]
     pub idempotency_key: uuid::Uuid,
     #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
-    pub source: Option<Box<models::TransferSourceWalletLocation>>,
+    pub source: Option<models::TransferSourceWalletLocation>,
     #[serde(rename = "destination")]
-    pub destination: Box<models::CryptoPayoutDestination>,
+    pub destination: models::CryptoPayoutDestination,
     #[serde(rename = "amount")]
-    pub amount: Box<models::Money>,
+    pub amount: models::Money,
     #[serde(rename = "toAmount", skip_serializing_if = "Option::is_none")]
-    pub to_amount: Option<Box<models::ToAmount>>,
+    pub to_amount: Option<models::ToAmount>,
 }
 
 impl CryptoPayoutCreationRequest {
@@ -31,8 +31,8 @@ impl CryptoPayoutCreationRequest {
         CryptoPayoutCreationRequest {
             idempotency_key,
             source: None,
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            destination,
+            amount,
             to_amount: None,
         }
     }

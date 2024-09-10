@@ -21,9 +21,9 @@ pub struct UnwithdrawalObject {
     #[serde(rename = "payoutId", skip_serializing_if = "Option::is_none")]
     pub payout_id: Option<uuid::Uuid>,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::FiatMoneyUsd>>,
+    pub amount: Option<models::FiatMoneyUsd>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     /// Reason for the return.
     #[serde(rename = "reason", skip_serializing_if = "Option::is_none")]
     pub reason: Option<String>,

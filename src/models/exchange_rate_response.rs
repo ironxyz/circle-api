@@ -20,9 +20,9 @@ pub struct ExchangeRateResponse {
     #[serde(rename = "rate")]
     pub rate: f32,
     #[serde(rename = "from")]
-    pub from: Box<models::FiatOptionalAmountMoney>,
+    pub from: models::FiatOptionalAmountMoney,
     #[serde(rename = "to")]
-    pub to: Box<models::FiatOptionalAmountMoney>,
+    pub to: models::FiatOptionalAmountMoney,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "timestamp")]
     pub timestamp: String,
@@ -33,8 +33,8 @@ impl ExchangeRateResponse {
         ExchangeRateResponse {
             id,
             rate,
-            from: Box::new(from),
-            to: Box::new(to),
+            from,
+            to,
             timestamp,
         }
     }

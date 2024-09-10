@@ -23,7 +23,7 @@ pub struct PaymentToken {
     #[serde(rename = "expiresOn")]
     pub expires_on: String,
     #[serde(rename = "cardDetails")]
-    pub card_details: Box<models::TokenizedCardDetails>,
+    pub card_details: models::TokenizedCardDetails,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate")]
     pub create_date: String,
@@ -38,7 +38,7 @@ impl PaymentToken {
             id,
             r#type,
             expires_on,
-            card_details: Box::new(card_details),
+            card_details,
             create_date,
             update_date,
         }

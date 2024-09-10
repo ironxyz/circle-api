@@ -16,8 +16,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PaymentTokenRequestTokenData {
-    ApplePayToken(Box<models::ApplePayToken>),
-    GooglePayToken(Box<models::GooglePayToken>),
+    ApplePayToken(models::ApplePayToken),
+    GooglePayToken(models::GooglePayToken),
 }
 
 impl Default for PaymentTokenRequestTokenData {

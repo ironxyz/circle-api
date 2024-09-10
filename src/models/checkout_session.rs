@@ -37,9 +37,9 @@ pub struct CheckoutSession {
     #[serde(rename = "updateDate")]
     pub update_date: String,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CheckoutSessionMoney>,
+    pub amount: models::CheckoutSessionMoney,
     #[serde(rename = "amountPaid")]
-    pub amount_paid: Box<models::CheckoutSessionMoney>,
+    pub amount_paid: models::CheckoutSessionMoney,
     /// IDs of all the associated payments.
     #[serde(rename = "paymentIds")]
     pub payment_ids: Vec<uuid::Uuid>,
@@ -59,8 +59,8 @@ impl CheckoutSession {
             expires_on,
             create_date,
             update_date,
-            amount: Box::new(amount),
-            amount_paid: Box::new(amount_paid),
+            amount,
+            amount_paid,
             payment_ids,
             payment_intent_ids,
         }

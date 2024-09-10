@@ -18,11 +18,11 @@ pub struct TransferDetailedTransfer {
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
     #[serde(rename = "source")]
-    pub source: Box<models::TransferSourceLocation>,
+    pub source: models::TransferSourceLocation,
     #[serde(rename = "destination")]
-    pub destination: Box<models::TransferDestinationLocation>,
+    pub destination: models::TransferDestinationLocation,
     #[serde(rename = "amount")]
-    pub amount: Box<models::Money>,
+    pub amount: models::Money,
     /// An array of fees applied to a transaction. This is only available when there is at least one non-zero fee.
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
     pub fees: Option<Vec<models::Fee>>,
@@ -35,7 +35,7 @@ pub struct TransferDetailedTransfer {
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::TransferErrorCode>>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate", skip_serializing_if = "Option::is_none")]
     pub create_date: Option<String>,
@@ -46,9 +46,9 @@ impl TransferDetailedTransfer {
     pub fn new(id: uuid::Uuid, source: models::TransferSourceLocation, destination: models::TransferDestinationLocation, amount: models::Money, status: Status) -> TransferDetailedTransfer {
         TransferDetailedTransfer {
             id,
-            source: Box::new(source),
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            source,
+            destination,
+            amount,
             fees: None,
             transaction_hash: None,
             status,

@@ -16,9 +16,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WireCreationRequest {
-    WireCreationRequestUs(Box<models::WireCreationRequestUs>),
-    WireCreationRequestIban(Box<models::WireCreationRequestIban>),
-    WireCreationRequestAccountNumber(Box<models::WireCreationRequestAccountNumber>),
+    WireCreationRequestUs(models::WireCreationRequestUs),
+    WireCreationRequestIban(models::WireCreationRequestIban),
+    WireCreationRequestAccountNumber(models::WireCreationRequestAccountNumber),
 }
 
 impl Default for WireCreationRequest {

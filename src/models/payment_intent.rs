@@ -17,11 +17,11 @@ pub struct PaymentIntent {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoPaymentsMoney>,
+    pub amount: models::CryptoPaymentsMoney,
     #[serde(rename = "amountPaid", skip_serializing_if = "Option::is_none")]
-    pub amount_paid: Option<Box<models::CryptoPaymentsMoney>>,
+    pub amount_paid: Option<models::CryptoPaymentsMoney>,
     #[serde(rename = "amountRefunded", skip_serializing_if = "Option::is_none")]
-    pub amount_refunded: Option<Box<models::CryptoPaymentsMoney>>,
+    pub amount_refunded: Option<models::CryptoPaymentsMoney>,
     /// Desired currency for the payments to settle in.
     #[serde(rename = "settlementCurrency")]
     pub settlement_currency: SettlementCurrency,
@@ -56,7 +56,7 @@ impl PaymentIntent {
     pub fn new(amount: models::CryptoPaymentsMoney, settlement_currency: SettlementCurrency, payment_methods: Vec<models::PaymentMethodBlockchain>) -> PaymentIntent {
         PaymentIntent {
             id: None,
-            amount: Box::new(amount),
+            amount,
             amount_paid: None,
             amount_refunded: None,
             settlement_currency,

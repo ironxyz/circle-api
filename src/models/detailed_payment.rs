@@ -26,9 +26,9 @@ pub struct DetailedPayment {
     #[serde(rename = "merchantWalletId", skip_serializing_if = "Option::is_none")]
     pub merchant_wallet_id: Option<String>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     #[serde(rename = "source")]
-    pub source: Box<models::SourceResponse>,
+    pub source: models::SourceResponse,
     /// Enumerated description of the payment.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<Description>,
@@ -38,29 +38,29 @@ pub struct DetailedPayment {
     #[serde(rename = "captured", skip_serializing_if = "Option::is_none")]
     pub captured: Option<bool>,
     #[serde(rename = "captureAmount", skip_serializing_if = "Option::is_none")]
-    pub capture_amount: Option<Box<models::FiatMoneyUsd>>,
+    pub capture_amount: Option<models::FiatMoneyUsd>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "captureDate", skip_serializing_if = "Option::is_none")]
     pub capture_date: Option<String>,
     #[serde(rename = "requiredAction", skip_serializing_if = "Option::is_none")]
-    pub required_action: Option<Box<models::RequiredAction>>,
+    pub required_action: Option<models::RequiredAction>,
     #[serde(rename = "verification", skip_serializing_if = "Option::is_none")]
-    pub verification: Option<Box<models::PaymentVerificationResponse>>,
+    pub verification: Option<models::PaymentVerificationResponse>,
     #[serde(rename = "cancel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub cancel: Option<Option<Box<models::FiatCancel>>>,
+    pub cancel: Option<Option<models::FiatCancel>>,
     #[serde(rename = "refunds", skip_serializing_if = "Option::is_none")]
     pub refunds: Option<Vec<models::FiatRefund>>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     /// Payment tracking reference. Will be present once known.
     #[serde(rename = "trackingRef", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tracking_ref: Option<Option<String>>,
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::PaymentErrorCode>>,
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<Box<models::MetadataPhoneEmail>>,
+    pub metadata: Option<models::MetadataPhoneEmail>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// The channel identifier that can be set for the payment. When not provided, the default channel is used.
     #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
     pub channel: Option<uuid::Uuid>,
@@ -79,8 +79,8 @@ impl DetailedPayment {
             r#type,
             merchant_id,
             merchant_wallet_id: None,
-            amount: Box::new(amount),
-            source: Box::new(source),
+            amount,
+            source,
             description: None,
             status,
             captured: None,

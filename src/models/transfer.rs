@@ -18,11 +18,11 @@ pub struct Transfer {
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
     #[serde(rename = "source")]
-    pub source: Box<models::TransferSourceLocation>,
+    pub source: models::TransferSourceLocation,
     #[serde(rename = "destination")]
-    pub destination: Box<models::TransferDestinationLocation>,
+    pub destination: models::TransferDestinationLocation,
     #[serde(rename = "amount")]
-    pub amount: Box<models::Money>,
+    pub amount: models::Money,
     /// An array of fees applied to a transaction. This is only available when there is at least one non-zero fee.
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
     pub fees: Option<Vec<models::Fee>>,
@@ -44,9 +44,9 @@ impl Transfer {
     pub fn new(id: uuid::Uuid, source: models::TransferSourceLocation, destination: models::TransferDestinationLocation, amount: models::Money, status: Status) -> Transfer {
         Transfer {
             id,
-            source: Box::new(source),
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            source,
+            destination,
+            amount,
             fees: None,
             transaction_hash: None,
             status,

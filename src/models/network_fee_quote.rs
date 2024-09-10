@@ -17,7 +17,7 @@ pub struct NetworkFeeQuote {
     #[serde(rename = "quoteId")]
     pub quote_id: uuid::Uuid,
     #[serde(rename = "amount")]
-    pub amount: Box<models::CryptoPaymentsMoney>,
+    pub amount: models::CryptoPaymentsMoney,
     /// The timestamp when the quote will expire at, in ISO-8601 UTC date/time format.
     #[serde(rename = "expiresAt")]
     pub expires_at: String,
@@ -27,7 +27,7 @@ impl NetworkFeeQuote {
     pub fn new(quote_id: uuid::Uuid, amount: models::CryptoPaymentsMoney, expires_at: String) -> NetworkFeeQuote {
         NetworkFeeQuote {
             quote_id,
-            amount: Box::new(amount),
+            amount,
             expires_at,
         }
     }

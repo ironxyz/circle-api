@@ -21,16 +21,16 @@ pub struct BusinessDeposit {
     #[serde(rename = "sourceWalletId", skip_serializing_if = "Option::is_none")]
     pub source_wallet_id: Option<uuid::Uuid>,
     #[serde(rename = "destination")]
-    pub destination: Box<models::WalletLocation>,
+    pub destination: models::WalletLocation,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoney>,
+    pub amount: models::FiatMoney,
     #[serde(rename = "fee", skip_serializing_if = "Option::is_none")]
-    pub fee: Option<Box<models::FiatMoneyUsd>>,
+    pub fee: Option<models::FiatMoneyUsd>,
     /// Status of the deposit. Status `pending` indicates that the deposit is in the process of running; `complete` indicates it finished successfully; `failed` indicates it failed.
     #[serde(rename = "status")]
     pub status: Status,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate")]
     pub create_date: String,
@@ -45,8 +45,8 @@ impl BusinessDeposit {
         BusinessDeposit {
             id,
             source_wallet_id: None,
-            destination: Box::new(destination),
-            amount: Box::new(amount),
+            destination,
+            amount,
             fee: None,
             status,
             risk_evaluation: None,

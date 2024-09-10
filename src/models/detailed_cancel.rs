@@ -26,27 +26,27 @@ pub struct DetailedCancel {
     #[serde(rename = "merchantWalletId", skip_serializing_if = "Option::is_none")]
     pub merchant_wallet_id: Option<String>,
     #[serde(rename = "amount")]
-    pub amount: Box<models::FiatMoneyUsd>,
+    pub amount: models::FiatMoneyUsd,
     #[serde(rename = "source")]
-    pub source: Box<models::SourceResponse>,
+    pub source: models::SourceResponse,
     /// Enumerated description of the payment.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<Description>,
     #[serde(rename = "status")]
     pub status: models::CancelRefundReversalStatus,
     #[serde(rename = "originalPayment", skip_serializing_if = "Option::is_none")]
-    pub original_payment: Option<Box<models::FiatPayment>>,
+    pub original_payment: Option<models::FiatPayment>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     /// Payment tracking reference. Will be present once known.
     #[serde(rename = "trackingRef", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tracking_ref: Option<Option<String>>,
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::PaymentErrorCode>>,
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<Box<models::MetadataPhoneEmail>>,
+    pub metadata: Option<models::MetadataPhoneEmail>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// If the cancel was made after a cutoff time period, it will be processed as a refund. This flag indicates that the cancel was processed as a refund'
     #[serde(rename = "refund", skip_serializing_if = "Option::is_none")]
     pub refund: Option<bool>,
@@ -65,8 +65,8 @@ impl DetailedCancel {
             r#type,
             merchant_id,
             merchant_wallet_id: None,
-            amount: Box::new(amount),
-            source: Box::new(source),
+            amount,
+            source,
             description: None,
             status,
             original_payment: None,

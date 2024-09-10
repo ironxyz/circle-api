@@ -20,13 +20,13 @@ pub struct BusinessPayout {
     #[serde(rename = "sourceWalletId", skip_serializing_if = "Option::is_none")]
     pub source_wallet_id: Option<String>,
     #[serde(rename = "destination", skip_serializing_if = "Option::is_none")]
-    pub destination: Option<Box<models::BankDestination>>,
+    pub destination: Option<models::BankDestination>,
     #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<Box<models::FiatMoney>>,
+    pub amount: Option<models::FiatMoney>,
     #[serde(rename = "toAmount", skip_serializing_if = "Option::is_none")]
-    pub to_amount: Option<Box<models::FiatPayoutToMoney>>,
+    pub to_amount: Option<models::FiatPayoutToMoney>,
     #[serde(rename = "fees", skip_serializing_if = "Option::is_none")]
-    pub fees: Option<Box<models::FiatMoneyUsd>>,
+    pub fees: Option<models::FiatMoneyUsd>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<models::PayoutStatus>,
     /// A payout tracking reference. Will be present once known.
@@ -35,11 +35,11 @@ pub struct BusinessPayout {
     #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<Option<models::PayoutErrorCode>>,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     #[serde(rename = "adjustments", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub adjustments: Option<Option<Box<models::FinalAdjustments>>>,
+    pub adjustments: Option<Option<models::FinalAdjustments>>,
     #[serde(rename = "return", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub r#return: Option<Option<Box<models::UnwithdrawalObject>>>,
+    pub r#return: Option<Option<models::UnwithdrawalObject>>,
     /// ISO-8601 UTC date/time format.
     #[serde(rename = "createDate", skip_serializing_if = "Option::is_none")]
     pub create_date: Option<String>,

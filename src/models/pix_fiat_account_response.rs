@@ -25,7 +25,7 @@ pub struct PixFiatAccountResponse {
     #[serde(rename = "trackingRef")]
     pub tracking_ref: String,
     #[serde(rename = "riskEvaluation", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub risk_evaluation: Option<Option<Box<models::RiskEvaluation>>>,
+    pub risk_evaluation: Option<Option<models::RiskEvaluation>>,
     /// A UUID that uniquely identifies the account number. If the same account is used more than once, each card object will have a different id, but the fingerprint will stay the same.
     #[serde(rename = "fingerprint")]
     pub fingerprint: String,
