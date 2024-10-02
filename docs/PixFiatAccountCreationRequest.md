@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the beneficiary. | 
 **account_number** | **String** | Beneficiary account number. | 
 **ispb** | **String** | Beneficiary ISPB. | 
-**branch_code** | Option<**String**> | Beneficiary account branch code. | [optional]
+**branch_code** | **String** | Beneficiary account branch code. | 
 **tax_id** | **String** | Beneficiary Tax ID. | 
 **account_type** | [**models::PixAccountType**](PixAccountType.md) |  | 
 

@@ -23,6 +23,9 @@ docs/BankDestination.md
 docs/BasicChargeback.md
 docs/BasicChargebackHistory.md
 docs/BillingDetails.md
+docs/BurnFeeNetAmount.md
+docs/BurnFeePaymentAmount.md
+docs/BurnFeePayoutAmount.md
 docs/BusinessAccountPayoutDestinationType.md
 docs/BusinessDeposit.md
 docs/BusinessDestinationRequest.md
@@ -164,6 +167,7 @@ docs/LimitExceeded.md
 docs/ListAddressBookRecipientsResponse.md
 docs/ListAddressesResponse.md
 docs/ListBalancesResponse.md
+docs/ListBurnFeeCalculationsResponse.md
 docs/ListBusinessBalancesResponse.md
 docs/ListBusinessCbitAccountInstructionsResponse.md
 docs/ListBusinessCbitAccountsResponse.md
@@ -235,6 +239,7 @@ docs/PresignResponseTypedData.md
 docs/PublicKey.md
 docs/PullCryptoPaymentsApi.md
 docs/Rate.md
+docs/RedemptionFeeCalculation.md
 docs/RefundCreationRequest.md
 docs/RefundPaymentResponse.md
 docs/RequiredAction.md
@@ -340,6 +345,9 @@ src/models/bank_destination.rs
 src/models/basic_chargeback.rs
 src/models/basic_chargeback_history.rs
 src/models/billing_details.rs
+src/models/burn_fee_net_amount.rs
+src/models/burn_fee_payment_amount.rs
+src/models/burn_fee_payout_amount.rs
 src/models/business_account_payout_destination_type.rs
 src/models/business_deposit.rs
 src/models/business_destination_request.rs
@@ -470,6 +478,7 @@ src/models/limit_exceeded.rs
 src/models/list_address_book_recipients_response.rs
 src/models/list_addresses_response.rs
 src/models/list_balances_response.rs
+src/models/list_burn_fee_calculations_response.rs
 src/models/list_business_balances_response.rs
 src/models/list_business_cbit_account_instructions_response.rs
 src/models/list_business_cbit_accounts_response.rs
@@ -536,6 +545,7 @@ src/models/presign_response.rs
 src/models/presign_response_typed_data.rs
 src/models/public_key.rs
 src/models/rate.rs
+src/models/redemption_fee_calculation.rs
 src/models/refund_creation_request.rs
 src/models/refund_payment_response.rs
 src/models/required_action.rs

@@ -6,7 +6,7 @@
     }
   ],
   "info": {
-    "version": "2.11.1",
+    "version": "2.12.0",
     "title": "All Circle APIs",
     "description": "Circle's General, Core Functionality, Payments, Payouts, Accounts, and Crypto Payments APIs bundled into one OpenAPI Specification."
   },
@@ -1116,11 +1116,16 @@
                         "description": "WELLS FARGO BANK, NA ****0010",
                         "trackingRef": "CIR13FB13A",
                         "transferTypesInfo": {
-                          "currencies": [
-                            "USD"
-                          ],
-                          "additionalProperties": {
-                            "transactionLimits": 100000
+                          "wire": {
+                            "currencies": [
+                              "USD",
+                              "EUR"
+                            ]
+                          },
+                          "rtgs": {
+                            "currencies": [
+                              "USD"
+                            ]
                           }
                         },
                         "fingerprint": "eb170539-9e1c-4e92-bf4f-1d09534fdca2",
@@ -1200,11 +1205,16 @@
                           "description": "WELLS FARGO BANK, NA ****0010",
                           "trackingRef": "CIR13FB13A",
                           "transferTypesInfo": {
-                            "currencies": [
-                              "USD"
-                            ],
-                            "additionalProperties": {
-                              "transactionLimits": 100000
+                            "wire": {
+                              "currencies": [
+                                "USD",
+                                "EUR"
+                              ]
+                            },
+                            "rtgs": {
+                              "currencies": [
+                                "USD"
+                              ]
                             }
                           },
                           "fingerprint": "eb170539-9e1c-4e92-bf4f-1d09534fdca2",
@@ -1285,11 +1295,16 @@
                         "description": "WELLS FARGO BANK, NA ****0010",
                         "trackingRef": "CIR13FB13A",
                         "transferTypesInfo": {
-                          "currencies": [
-                            "USD"
-                          ],
-                          "additionalProperties": {
-                            "transactionLimits": 100000
+                          "wire": {
+                            "currencies": [
+                              "USD",
+                              "EUR"
+                            ]
+                          },
+                          "rtgs": {
+                            "currencies": [
+                              "USD"
+                            ]
                           }
                         },
                         "fingerprint": "eb170539-9e1c-4e92-bf4f-1d09534fdca2",
@@ -1452,11 +1467,10 @@
                         "trackingRef": "CIR25XSXT8",
                         "walletAddress": "0x7d8da35e03ef3a5ec5d5edbb961ef399dfb42d1e",
                         "transferTypesInfo": {
-                          "currencies": [
-                            "USD"
-                          ],
-                          "additionalProperties": {
-                            "transactionLimits": 100000
+                          "cbit": {
+                            "currencies": [
+                              "USD"
+                            ]
                           }
                         },
                         "createDate": "2020-04-10T02:13:30.000Z",
@@ -1518,11 +1532,10 @@
                           "trackingRef": "CIR25XSXT8",
                           "walletAddress": "0x7d8da35e03ef3a5ec5d5edbb961ef399dfb42d1e",
                           "transferTypesInfo": {
-                            "currencies": [
-                              "USD"
-                            ],
-                            "additionalProperties": {
-                              "transactionLimits": 100000
+                            "cbit": {
+                              "currencies": [
+                                "USD"
+                              ]
                             }
                           },
                           "createDate": "2020-04-10T02:13:30.000Z",
@@ -1585,11 +1598,10 @@
                         "trackingRef": "CIR25XSXT8",
                         "walletAddress": "0x7d8da35e03ef3a5ec5d5edbb961ef399dfb42d1e",
                         "transferTypesInfo": {
-                          "currencies": [
-                            "USD"
-                          ],
-                          "additionalProperties": {
-                            "transactionLimits": 100000
+                          "cbit": {
+                            "currencies": [
+                              "USD"
+                            ]
                           }
                         },
                         "createDate": "2020-04-10T02:13:30.000Z",
@@ -1715,6 +1727,13 @@
                         "status": "pending",
                         "description": "BTG Pactual ****0010",
                         "trackingRef": "CIR13FB13A",
+                        "transferTypesInfo": {
+                          "pix": {
+                            "currencies": [
+                              "BRL"
+                            ]
+                          }
+                        },
                         "riskEvaluation": {
                           "decision": "approved",
                           "reason": "3000"
@@ -1778,6 +1797,13 @@
                           "status": "pending",
                           "description": "BTG Pactual ****0010",
                           "trackingRef": "CIR13FB13A",
+                          "transferTypesInfo": {
+                            "pix": {
+                              "currencies": [
+                                "BRL"
+                              ]
+                            }
+                          },
                           "riskEvaluation": {
                             "decision": "approved",
                             "reason": "3000"
@@ -1842,6 +1868,13 @@
                         "status": "pending",
                         "description": "BTG Pactual ****0010",
                         "trackingRef": "CIR13FB13A",
+                        "transferTypesInfo": {
+                          "pix": {
+                            "currencies": [
+                              "BRL"
+                            ]
+                          }
+                        },
                         "riskEvaluation": {
                           "decision": "approved",
                           "reason": "3000"
@@ -6062,6 +6095,110 @@
         }
       }
     },
+    "/v1/fees/redemption/net/dailyReports": {
+      "get": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "minimumFeeAmount",
+            "description": "Filters out NET burn daily fee calculations below minimumFeeAmount value.",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "3.14"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Currency"
+          },
+          {
+            "$ref": "#/components/parameters/From"
+          },
+          {
+            "$ref": "#/components/parameters/To"
+          },
+          {
+            "$ref": "#/components/parameters/PageBefore"
+          },
+          {
+            "$ref": "#/components/parameters/PageAfter"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "summary": "List all NET burn daily fee calculations",
+        "description": "Searches for NET burn fee daily calculations. This endpoint returns up to 50 daily fee amount calculations in descending chronological order or pageSize, if provided.",
+        "operationId": "listNetBurnFeeDailyCalculations",
+        "tags": [
+          "Payouts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a list of NET burn fee calculations.",
+            "headers": {
+              "X-Request-Id": {
+                "$ref": "#/components/headers/XRequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "ListBurnFeeCalculationsResponse",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RedemptionFeeCalculation"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "response": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": "b8627ae8-732b-4d25-b947-1df8f4007a29",
+                          "fee": {
+                            "amount": "3.14",
+                            "currency": "USD"
+                          },
+                          "cumulatedPayoutAmount": {
+                            "amount": "64.54",
+                            "currency": "USD"
+                          },
+                          "cumulatedPaymentAmount": {
+                            "amount": "34.54",
+                            "currency": "USD"
+                          },
+                          "cumulatedNetAmount": {
+                            "amount": "30.00",
+                            "currency": "USD"
+                          },
+                          "valueDate": "2023-05-23",
+                          "status": "paid",
+                          "thresholdResetTimestamp": "2023-05-23T23:59:59.999Z",
+                          "createDate": "2024-04-10T02:13:30.000Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuthorized"
+          }
+        }
+      }
+    },
     "/v1/wallets": {
       "post": {
         "security": [
@@ -7783,8 +7920,7 @@
           "POLY",
           "SOL",
           "TRX",
-          "XLM",
-          "ZKS"
+          "XLM"
         ]
       },
       "TokenAmount": {
@@ -8800,6 +8936,19 @@
             "description": "A <TransferType, TransferTypeInfo> map which shows transfer types supported on this account as well as additional information for each.",
             "additionalProperties": {
               "$ref": "#/components/schemas/TransferTypeInfo"
+            },
+            "example": {
+              "wire": {
+                "currencies": [
+                  "USD",
+                  "EUR"
+                ]
+              },
+              "rtgs": {
+                "currencies": [
+                  "USD"
+                ]
+              }
             }
           },
           "fingerprint": {
@@ -9143,6 +9292,13 @@
             "description": "A <TransferType, TransferTypeInfo> map which shows transfer types supported on this account as well as additional information for each. For CBIT accounts this will always only show information for CBIT transfers.",
             "additionalProperties": {
               "$ref": "#/components/schemas/TransferTypeInfo"
+            },
+            "example": {
+              "cbit": {
+                "currencies": [
+                  "USD"
+                ]
+              }
             }
           },
           "createDate": {
@@ -9194,7 +9350,8 @@
           "trackingRef",
           "fingerprint",
           "createDate",
-          "updateDate"
+          "updateDate",
+          "transferTypesInfo"
         ],
         "properties": {
           "id": {
@@ -9212,6 +9369,20 @@
             "type": "string",
             "description": "Wire tracking ref that needs to be set in the wire reference to beneficiary field.",
             "example": "CIR13FB13A"
+          },
+          "transferTypesInfo": {
+            "type": "object",
+            "description": "A <TransferType, TransferTypeInfo> map which shows transfer types supported on this account as well as additional information for each. For PIX accounts this will always only show information for PIX transfers.",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TransferTypeInfo"
+            },
+            "example": {
+              "pix": {
+                "currencies": [
+                  "BRL"
+                ]
+              }
+            }
           },
           "riskEvaluation": {
             "$ref": "#/components/schemas/RiskEvaluation"
@@ -9246,6 +9417,7 @@
           "name",
           "accountNumber",
           "ispb",
+          "branchCode",
           "taxId",
           "accountType"
         ],
@@ -12259,6 +12431,102 @@
           }
         }
       },
+      "BurnFeePayoutAmount": {
+        "type": "object",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "properties": {
+          "amount": {
+            "description": "Sum of all initiated payouts, in units of the currency, with a `.`.",
+            "type": "string",
+            "example": "3.14"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/FiatCurrency"
+          }
+        }
+      },
+      "BurnFeePaymentAmount": {
+        "type": "object",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "properties": {
+          "amount": {
+            "description": "Sum of all push payments received, in units of the currency, with a `.`.",
+            "type": "string",
+            "example": "3.14"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/FiatCurrency"
+          }
+        }
+      },
+      "BurnFeeNetAmount": {
+        "type": "object",
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "properties": {
+          "amount": {
+            "description": "Sum of all initiated payouts minus sum of all received push payments, in units of the currency, with a `.`.",
+            "type": "string",
+            "example": "3.14"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/FiatCurrency"
+          }
+        }
+      },
+      "RedemptionFeeCalculation": {
+        "type": "object",
+        "description": "A NET burn fee calculation for a day.",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "fee": {
+            "$ref": "#/components/schemas/FiatMoney"
+          },
+          "cumulatedPayoutAmount": {
+            "$ref": "#/components/schemas/BurnFeePayoutAmount"
+          },
+          "cumulatedPaymentAmount": {
+            "$ref": "#/components/schemas/BurnFeePaymentAmount"
+          },
+          "cumulatedNetAmount": {
+            "$ref": "#/components/schemas/BurnFeeNetAmount"
+          },
+          "valueDate": {
+            "description": "A date representing a day for which a fee is calculated.",
+            "type": "string",
+            "example": "2023-05-23"
+          },
+          "status": {
+            "description": "Fee collection status",
+            "type": "string",
+            "enum": [
+              "scheduled",
+              "pending",
+              "paid"
+            ]
+          },
+          "thresholdResetTimestamp": {
+            "description": "Fee calculation reset timestamp.",
+            "type": "string",
+            "example": "2023-05-23T23:59:59.999Z"
+          },
+          "createDate": {
+            "description": "The create date of the NET burn daily fee calculation.",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "Wallet": {
         "type": "object",
         "properties": {
@@ -13347,8 +13615,7 @@
             "POLY",
             "SOL",
             "TRX",
-            "XLM",
-            "ZKS"
+            "XLM"
           ]
         }
       },
